@@ -1,0 +1,17 @@
+<% var dropdown = Array.isArray(node.nodes) && node.nodes.length;  %>
+<li
+<%if (dropdown) {%> class="menu-item dropdown dropdown-submenu" <% } %>
+>
+  <a href="<%= node.url %>"
+    <%if (dropdown) {%> class="dropdown-toggle" <% } %>
+  >
+    <%= node.caption %>
+  </a>
+<% if (dropdown) { %>
+  <ul class="dropdown-menu">
+    <% node.nodes.forEach(function(sn){ %>
+    <%- partial('../parts/menu_subnode', { node: sn }) %>
+    <% }) %>
+  </ul>
+<% } %>
+</li>

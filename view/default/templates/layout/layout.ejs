@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title><%= portal %></title>
+  <link href="/<%= module %>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/<%= module %>/css/style.css" rel="stylesheet">
+</head>
+<body>
+  <%- partial('../parts/menu', { menu }) %>
+  <%- body -%>
+  <script src="/<%= module %>/vendor/jquery/jquery.min.js"></script>
+  <script src="/<%= module %>/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/<%= module %>/js/scripts.js"></script>
+</body>
+</html>

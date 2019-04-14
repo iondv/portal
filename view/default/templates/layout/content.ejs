@@ -1,0 +1,40 @@
+<% layout('./layout') %>
+<div class="jumbotron node-header">
+  <div class="container-fluid">
+    <h2><%= node.caption%></h2>
+  </div>
+</div>
+<div class="container-fluid">
+  <% if (Array.isArray(node.subNodes) && node.subNodes.length) { %>
+    <ul class="nav nav-pills">
+      <% node.subNodes.forEach(function(subnode){ %>
+        <li role="presentation"><a href="<%= subnode.code %>"><%= subnode.caption %></a></li>
+      <% }) %>
+    </ul>
+  <% } %>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="contents">
+      <% Object.keys(resources).forEach(function(key){ %>
+        <h3><a href="#<%= key %>"><%= key %></a></h3>
+        <div class="list-group">
+          <%
+          if(Array.isArray(resources[key]) && resources[key].length) {
+            resources[key].forEach(function(resource){
+          %>
+          <a href="#<%= key %>_<%= resource.getId() %>" class="list-group-item">
+            <%= resource.getTitle() %>
+          </a>
+          <%
+          })
+          }
+          %>
+        </div>
+      <% }) %>
+      </div>
+    </div>
+    <div class="col-md-9" id="inner">
+      <%- body -%>
+    </div>
+  </div>
+</div>

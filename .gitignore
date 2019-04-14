@@ -1,0 +1,11 @@
+**/node_modules/*
+/**/vendor/*
+*.less.css
+*.min.css
+*.min.js
+/view/**/plugins/*
+.directory
+/**/*.ini
+/**/*.swp
+package-lock.json
+/.git-*/*

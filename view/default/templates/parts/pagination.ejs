@@ -1,0 +1,17 @@
+<%
+if (page  && pageCount > 1) {
+%>
+<nav>
+  <ul class="pagination">
+    <%
+    for (let i = 1; i <= pageCount; i++) {
+    %>
+    <li <% if (i === page) {%>class="active"<% } %>>
+      <a href="?p=<%= i %>"><%= i %></a>
+    </li>
+    <% } %>
+  </ul>
+</nav>
+<%
+}
+%>

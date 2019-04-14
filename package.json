@@ -1,0 +1,24 @@
+{
+  "name": "iondv-portal",
+  "version": "1.4.0",
+  "description": "Portal is an IONDV. Framework module",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "engines": {
+    "ion": "2.8.0"
+  },
+  "author": "ion-dv",
+  "license": "Apache License 2.0",
+  "homepage": "https://github.com/iondv/portal",
+  "bugs": {
+    "url": "https://github.com/iondv/portal"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iondv/portal.git"
+  },
+  "dependencies": {
+    "showdown": "latest"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "parametrised": true,
+  "sysTitle": "Портал ION",
+  "lkModule": "lk",
+  "di" : {
+    "portalMeta": {
+      "module": "./lib/impl/DsPortalMetaRepository",
+      "initMethod": "init",
+      "initLevel": 1,
+      "options": {
+        "dataSource": "ion://Db"
+      }
+    },
+    "provider": {
+      "module": "./lib/ResourceProvider",
+      "options": {}
+    }
+  }
+}

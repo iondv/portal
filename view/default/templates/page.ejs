@@ -1,0 +1,22 @@
+<% layout('./layout/content') %>
+<% resources.forEach(function(resource){%>
+  <div>
+   <h3 id="<%= resource.getId() %>">
+     <a href="/<%= module %>/<%= node.code %>/<%= resource.getId() %>">
+       <%= resource.getTitle() %>
+     </a>
+     <%
+       var formatedDate = null;
+       var date = resource.getDate();
+       if (date) {
+          formatedDate = date.toLocaleString('ru',{year: 'numeric', month: 'numeric', day: 'numeric'});
+       }
+       %>
+     <% if (formatedDate) { %><small><%= formatedDate %></small><% } %>
+   </h3>
+   <p><%= resource.getContent() %></p>
+  </div>
+  <%
+    });
+  %>
+<%- partial('./parts/pagination') %>

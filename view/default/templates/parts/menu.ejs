@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/<%= module %>"><%= portal %></a>
+    </div>
+
+    <style type="text/css">
+      .lk-ref {
+        margin:15px;
+      }
+      .lk-ref a {
+        color: #9d9d9d;
+        text-decoration: none;
+      }
+      .lk-ref a:hover {
+        color: fff;
+      }
+    </style>
+
+
+    <div class="lk-ref nav pull-right">
+      <a href="/<%= lkModule %>">User profile</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <% menu.forEach(function(section){%>
+        <% if (Array.isArray(section.nodes) && section.nodes.length) { %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false"><%= section.caption %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% section.nodes.forEach(function(node){ %>
+            <%- partial('../parts/menu_subnode', { node }) %>
+            <% }); %>
+          </ul>
+        </li>
+        <% } else { %>
+        <li class="active"><a href="<%= section.url || '#' %>"><%= section.caption %></a></li>
+        <% } %>
+        <% }); %>
+
+        <% if (user.id() !== "anonymous") { %>
+          <li class="dropdown">
+            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+              <span class="user-name">
+                <span class="hidden-xs"><%= user.name() %> <span class="caret"></span></span>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/<%=module%>/sign-out"><i class="fa fa-power-off"></i> Log out</a></li>
+            </ul>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

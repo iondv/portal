@@ -1,0 +1,18 @@
+{
+  "name": "iondv-portal-view-default-theme",
+  "version": "1.0.0",
+
+  "description": "Frontend packages for module iondv. portal theme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iondv/portal.git"
+  },
+  "license": "Apache-2.0",
+  "vendorDir": "./static/vendor",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.2.4",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.23"
+  }
+}

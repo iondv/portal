@@ -1,0 +1,49 @@
+<%layout('./layout/content')%>
+<div class="login-box">
+  <%if(errors.length) {%>
+  <div id="error" class="alert alert-danger">
+    <%errors.forEach(function(error){%>
+    <p><%=error%></p>
+    <%});%>
+  </div>
+  <%}%>
+  <!-- login form -->
+  <form action="<%=module%>/auth" method="post" class="sky-form boxed">
+    <header><i class="fa fa-users"></i> Log in</header>
+    <input type="hidden" name="timezone" value=""/>
+    <fieldset>
+      <section>
+        <label class="label">Login</label>
+        <label class="input">
+          <i class="icon-append fa fa-user"></i>
+          <input id="username" type="login" name="username">
+        </label>
+      </section>
+
+      <section>
+        <label class="label">Password</label>
+        <label class="input">
+          <i class="icon-append fa fa-lock"></i>
+          <input id="password" type="password" name="password">
+        </label>
+      </section>
+    </fieldset>
+
+    <footer>
+      <button id="authbutton" type="submit" class="btn btn-primary pull-right">Enter</button>
+      <div class="forgot-password pull-left">
+        <%if (canRegister) {%>
+        <a href="<%=module%>/register"><b>Create account</b></a>
+        <%}%>
+      </div>
+    </footer>
+  </form>
+</div>
+<script src="<%=module%>/vendor/moment/moment.min.js"></script>
+<script src="<%=module%>/vendor/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
+<script src="<%=module%>/vendor/jquery/jquery.min.js"></script>
+<script>
+  $(function () {
+    $('input[name=timezone]').val(moment.tz.guess());
+  });
+</script>

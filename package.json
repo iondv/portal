@@ -9,14 +9,14 @@
     "ion": "2.8.0"
   },
   "author": "ion-dv",
-  "license": "Apache License 2.0",
-  "homepage": "https://github.com/iondv/portal",
+  "license": "LLC ION DV",
+  "homepage": "https://git.iondv.ru/ION-MODULES/portal",
   "bugs": {
-    "url": "https://github.com/iondv/portal"
+    "url": "https://ion-dv.atlassian.net/projects/IONPORTAL/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iondv/portal.git"
+    "url": "https://git.iondv.ru/ION-MODULES/portal.git"
   },
   "dependencies": {
     "showdown": "latest"

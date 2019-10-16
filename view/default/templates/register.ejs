@@ -1,4 +1,14 @@
 <%layout('./layout/content')%>
+<style>
+  .pwd-error {
+    position: absolute;
+    background-color: red;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    z-index: 1000;
+  }
+</style>
 <div class="login-box">
   <%if(errors.length) {%>
   <div id="error" class="alert alert-danger">
@@ -24,14 +34,18 @@
         <label class="input">
           <i class="icon-append fa fa-lock"></i>
           <input id="password" type="password" name="password">
+          <div class="pwd-error" style="display: none;"></div>
+          <b class="tooltip tooltip-top-right">Password</b>
         </label>
       </section>
 
       <section>
-        <label class="label">Repeat password</label>
+        <label class="label">Confirm password</label>
         <label class="input">
           <i class="icon-append fa fa-lock"></i>
           <input id="password2" type="password" name="password2">
+          <div class="pwd-error" style="display: none;"></div>
+          <b class="tooltip tooltip-top-right">Password</b>
         </label>
       </section>
 
@@ -66,3 +80,93 @@
     </footer>
   </form>
 </div>
+<script>
+  var allowSubmit = true;
+  jQuery(function () {
+    var options = <%- JSON.stringify(options || {}) %>;
+    var fields = <%- JSON.stringify(fields || {}) %>;
+    var $msgContainer = $('div#error');
+    var $submit = $('button#authbutton');
+    var $regForm = $('form#reg-form');
+    var $username = $regForm.find('input[name="username"]');
+    var $pwd = $regForm.find('input[name="password"]');
+    var $pwd2 = $regForm.find('input[name="password2"]');
+    $submit.click(function () {
+      if (!allowSubmit) {
+        return false;
+      }
+      $msgContainer.empty();
+      var username = $username.val();
+      var pwd = $pwd.val();
+      var pwd2 = $pwd2.val();
+      var valid = true;
+      var messages = [];
+      var field;
+      if (!username) {
+        messages.push('Login is required');
+      }
+      if (pwd && pwd2 && pwd === pwd2) {
+        if (options.pwdMinLength) {
+          if (pwd.length < options.pwdMinLength) {
+            valid = false;
+            messages.push('Minimum password length ' + options.pwdMinLength + ' characters');
+          }
+        }
+      } else {
+        valid = false;
+        messages.push('Wrong repeat password');
+      }
+      for (fieldName in fields) {
+        if (fields.hasOwnProperty(fieldName)) {
+          if (fields[fieldName] && fields[fieldName].required) {
+            field = $regForm.find('[name=' + fieldName + ']');
+            if (!field.val()) {
+              valid = false;
+              messages.push('Field ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
+                + ' required');
+            }
+          }
+        }
+      }
+      if (valid) {
+        $regForm.submit();
+        $msgContainer.empty();
+      } else if (messages.length) {
+        for (var i = 0; i < messages.length; i++) {
+          $('<p/>').html(messages[i]).appendTo($msgContainer);
+        }
+      }
+      return false;
+    });
+
+    function checkPwd(fld, data) {
+      $.post('checkPwd', data)
+        .then(function (data) {
+          if (data.error) {
+            let offset = fld.offset();
+            fld.next().css({left: offset.x, top: offset.y + fld.height()}).html(data.error).show();
+          } else {
+            fld.next().hide();
+          }
+          fld.toggleClass('error', !data.result);
+          allowSubmit = data.result;
+        })
+        .fail(function (xhr) {
+          fld.toggleClass('error', true);
+          allowSubmit = false;
+        });
+    }
+
+    $('#password').change(function () {
+      let fld = $(this);
+      let pwd = fld.val();
+      checkPwd(fld, {password: pwd, password2: pwd});
+    });
+    $('#password2').change(function () {
+      let fld = $(this);
+      let pwd2 = fld.val();
+      let pwd = $('#password').val();
+      checkPwd(fld, {password: pwd, password2: pwd2});
+    });
+  });
+</script>

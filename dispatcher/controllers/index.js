@@ -13,7 +13,7 @@ module.exports = function (req, res) {
    */
   var scope = di.context(moduleName);
   if (!scope.portalMeta) {
-    return onError(scope, new Error('Не настроен репозиторий метаданных портала'), res);
+    return onError(scope, new Error('Portal metadata repository not configured'), res);
   }
 
   var defaultPath = scope.settings.get(moduleName + '.default');

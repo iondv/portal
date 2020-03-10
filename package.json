@@ -1,14 +1,10 @@
 {
   "name": "portal",
-  "version": "1.4.1",
-  "description": "Portal is an IONDV. Framework module",
-  "scripts": {
-    "test": "gulp test"
-  },
+  "version": "2.0.0",
+  "description": "IONDV module: Portal",
   "engines": {
-    "ion": "3.0.4"
+    "ion": "4.0.0"
   },
-  "author": "ion-dv",
   "license": "Apache License 2.0",
   "homepage": "https://github.com/iondv/portal",
   "bugs": {

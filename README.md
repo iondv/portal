@@ -52,7 +52,7 @@ It's the IONDV. Framework web-application designed to store, group and demonstra
 
  #### [Licence](/LICENCE) &ensp;  [Contact us](https://iondv.com) &ensp;    [Russian](/README_RU.md)   &ensp; [FAQs](/faqs.md)          
 
-<div><img src="https://mc.iondv.com/watch/github/docs/portal" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
+<div><img src="https://mc.iondv.com/watch/local/docs/portal" style="position:absolute; left:-9999px;" height=1 width=1 alt="iondv metrics"></div>
 
 --------------------------------------------------------------------------  
 

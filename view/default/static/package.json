@@ -8,7 +8,7 @@
     "url": "https://github.com/iondv/portal.git"
   },
   "license": "Apache-2.0",
-  "vendorDir": "./static/vendor",
+  "vendorDir": "./vendor",
   "dependencies": {
     "bootstrap": "^3.3.5",
     "jquery": "^2.2.4",

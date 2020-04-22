@@ -18,6 +18,7 @@ const extViews = require('lib/util/extViews');
 const alias = require('core/scope-alias');
 const merge = require('merge');
 const isProduction = process.env.NODE_ENV === 'production';
+const isDevelop = process.env.NODE_ENV === 'development';
 
 var app = module.exports = express();
 var router = express.Router();
@@ -51,7 +52,7 @@ app._init = function () {
     'modules/' + moduleName)
     .then(scope => alias(scope, scope.settings.get(moduleName + '.di-alias')))
     .then((scope) => {
-      let staticOptions = isProduction ? scope.settings.get('staticOptions') : undefined;
+      let staticOptions = isDevelop ? {} : scope.settings.get('staticOptions');
       theme(
         app,
         moduleName,

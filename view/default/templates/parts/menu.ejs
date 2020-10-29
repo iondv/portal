@@ -19,7 +19,7 @@
 
 
     <div class="lk-ref nav pull-right">
-      <a href="/<%= lkModule %>">Личный кабинет</a>
+      <a href="/<%= lkModule %>"><%=t('Personal area')%></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -48,7 +48,7 @@
               </span>
             </a>
             <ul class="dropdown-menu">
-              <li><a href="/<%=module%>/sign-out"><i class="fa fa-power-off"></i> Выйти</a></li>
+              <li><a href="/<%=module%>/sign-out"><i class="fa fa-power-off"></i> <%=t('Exit')%></a></li>
             </ul>
           </li>
         <% } %>

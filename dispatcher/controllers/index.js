@@ -6,6 +6,7 @@
 const di = require('core/di');
 const moduleName = require('../../module-name');
 const {onError} = require('../../backend/error');
+const {t} = require('core/i18n');
 
 module.exports = function (req, res) {
   /**
@@ -13,7 +14,7 @@ module.exports = function (req, res) {
    */
   var scope = di.context(moduleName);
   if (!scope.portalMeta) {
-    return onError(scope, new Error('Не настроен репозиторий метаданных портала'), res);
+    return onError(scope, new Error(t('Meta model repository not set up.')), res);
   }
 
   var defaultPath = scope.settings.get(moduleName + '.default');

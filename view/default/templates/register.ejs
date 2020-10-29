@@ -19,10 +19,10 @@
   <%}%>
   <!-- login form -->
   <form action="<%=module%>/register" method="post" class="sky-form boxed">
-    <header><i class="fa fa-users"></i> Регистрация</header>
+    <header><i class="fa fa-users"></i> <%=t('Signing up')%></header>
     <fieldset>
       <section>
-        <label class="label">Логин</label>
+        <label class="label"><%=t('Login')%></label>
         <label class="input">
           <i class="icon-append fa fa-user"></i>
           <input id="username" type="login" name="username">
@@ -30,22 +30,22 @@
       </section>
 
       <section>
-        <label class="label">Пароль</label>
+        <label class="label"><%=t('Password')%></label>
         <label class="input">
           <i class="icon-append fa fa-lock"></i>
           <input id="password" type="password" name="password">
           <div class="pwd-error" style="display: none;"></div>
-          <b class="tooltip tooltip-top-right">Пароль</b>
+          <b class="tooltip tooltip-top-right"><%=t('Password')%></b>
         </label>
       </section>
 
       <section>
-        <label class="label">Повторите пароль</label>
+        <label class="label"><%=t('Repeat password')%></label>
         <label class="input">
           <i class="icon-append fa fa-lock"></i>
           <input id="password2" type="password" name="password2">
           <div class="pwd-error" style="display: none;"></div>
-          <b class="tooltip tooltip-top-right">Пароль</b>
+          <b class="tooltip tooltip-top-right"><%=t('Password')%></b>
         </label>
       </section>
 
@@ -73,9 +73,9 @@
     </fieldset>
 
     <footer>
-      <button id="authbutton" type="submit" class="btn btn-primary pull-right">Регистрация</button>
+      <button id="authbutton" type="submit" class="btn btn-primary pull-right"><%=t('Sign up')%></button>
       <div class="forgot-password pull-left">
-        <a href="<%=module%>/auth"><b>Войти</b></a>
+        <a href="<%=module%>/auth"><b><%=t('Sign in')%></b></a>
       </div>
     </footer>
   </form>
@@ -103,18 +103,18 @@
       var messages = [];
       var field;
       if (!username) {
-        messages.push('Поле логина обязательно для заполнения');
+        messages.push('Login field is required');
       }
       if (pwd && pwd2 && pwd === pwd2) {
         if (options.pwdMinLength) {
           if (pwd.length < options.pwdMinLength) {
             valid = false;
-            messages.push('Минимальная длина пароля ' + options.pwdMinLength + ' символов');
+            messages.push('Minimal password length is ' + options.pwdMinLength + ' symbols');
           }
         }
       } else {
         valid = false;
-        messages.push('Неверный повтор пароля');
+        messages.push('Invalid password repeat');
       }
       for (fieldName in fields) {
         if (fields.hasOwnProperty(fieldName)) {
@@ -122,8 +122,8 @@
             field = $regForm.find('[name=' + fieldName + ']');
             if (!field.val()) {
               valid = false;
-              messages.push('Поле ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
-                + ' обязательно для заполнения');
+              messages.push('Field ' + (fields[fieldName].caption ? fields[fieldName].caption : fieldName )
+                + ' is required');
             }
           }
         }

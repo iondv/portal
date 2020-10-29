@@ -9,11 +9,11 @@
   <%}%>
   <!-- login form -->
   <form action="<%=module%>/auth" method="post" class="sky-form boxed">
-    <header><i class="fa fa-users"></i> Вход в систему</header>
+    <header><i class="fa fa-users"></i> <%=t('Sign in to portal')%></header>
     <input type="hidden" name="timezone" value=""/>
     <fieldset>
       <section>
-        <label class="label">Логин</label>
+        <label class="label"><%=t('Login')%></label>
         <label class="input">
           <i class="icon-append fa fa-user"></i>
           <input id="username" type="login" name="username">
@@ -21,7 +21,7 @@
       </section>
 
       <section>
-        <label class="label">Пароль</label>
+        <label class="label"><%=t('Password')%></label>
         <label class="input">
           <i class="icon-append fa fa-lock"></i>
           <input id="password" type="password" name="password">
@@ -30,10 +30,10 @@
     </fieldset>
 
     <footer>
-      <button id="authbutton" type="submit" class="btn btn-primary pull-right">Войти</button>
+      <button id="authbutton" type="submit" class="btn btn-primary pull-right"><%=t('Sign in')%></button>
       <div class="forgot-password pull-left">
         <%if (canRegister) {%>
-        <a href="<%=module%>/register"><b>Зарегистрироваться</b></a>
+        <a href="<%=module%>/register"><b><%=t('Sign up')%></b></a>
         <%}%>
       </div>
     </footer>

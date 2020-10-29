@@ -19,6 +19,7 @@ const alias = require('core/scope-alias');
 const merge = require('merge');
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelop = process.env.NODE_ENV === 'development';
+const {load} = require('core/i18n');
 
 var app = module.exports = express();
 var router = express.Router();
@@ -43,13 +44,17 @@ app._init = function () {
     rootScope.auth.exclude('/' + moduleName);
   }
 
-  return di(
-    moduleName,
-    extendDi(moduleName, config.di),
-    {module: app},
-    'app',
-    [],
-    'modules/' + moduleName)
+  return load(path.join(__dirname, 'i18n'))
+    .then(
+      di(
+        moduleName,
+        extendDi(moduleName, config.di),
+        {module: app},
+        'app',
+        [],
+        'modules/' + moduleName
+      )
+    )
     .then(scope => alias(scope, scope.settings.get(moduleName + '.di-alias')))
     .then((scope) => {
       let staticOptions = isDevelop ? {} : scope.settings.get('staticOptions');

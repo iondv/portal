@@ -17,6 +17,7 @@ const staticRouter = require('lib/util/staticRouter');
 const extViews = require('lib/util/extViews');
 const alias = require('core/scope-alias');
 const merge = require('merge');
+const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelop = process.env.NODE_ENV === 'development';
 const {load} = require('core/i18n');
@@ -46,7 +47,7 @@ app._init = function () {
 
   return load(path.join(__dirname, 'i18n'))
     .then(
-      di(
+      () => di(
         moduleName,
         extendDi(moduleName, config.di),
         {module: app},
@@ -62,8 +63,7 @@ app._init = function () {
         app,
         moduleName,
         __dirname,
-        scope.settings.get(moduleName + '.theme') ||
-        config.theme || 'default',
+        scope.settings.get(moduleName + '.theme') || config.theme || 'default',
         scope.sysLog,
         staticOptions
       );

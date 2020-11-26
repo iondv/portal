@@ -1,6 +1,6 @@
 {
   "parametrised": true,
-  "sysTitle": "Портал ION",
+  "sysTitle": "ION portal",
   "lkModule": "lk",
   "di" : {
     "portalMeta": {

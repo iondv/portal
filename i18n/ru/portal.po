@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-01-21 04:29+0000\n"
+"POT-Creation-Date: 2021-01-21 05:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,9 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: lib/ResourceProvider.js:31 lib/ResourceProvider.js:38
-#, javascript-format
-msgid "Resource type %s is unsupported"
+#: dispatcher/controllers/index.js:17
+msgid "Meta model repository not set up."
 msgstr ""
 
 #: lib/import.js:50
@@ -40,6 +39,37 @@ msgstr ""
 #: lib/import.js:101
 #, javascript-format
 msgid "Importing portal navigation meta model from %s"
+msgstr ""
+
+#: lib/impl/DsPortalMetaRepository.js:20
+msgid "Meta model repository data source not set up."
+msgstr ""
+
+#: lib/impl/adapter/ClassAdapter.js:22
+msgid "IonClassAdapter: data repository not specified."
+msgstr ""
+
+#: lib/impl/adapter/ClassAdapter.js:26
+msgid "IonClassAdapter: published class name not specified."
+msgstr ""
+
+#: lib/impl/adapter/FileAdapter.js:23
+msgid "FileAdapter: contents directory is not set up."
+msgstr ""
+
+#: lib/impl/adapter/FileAdapter.js:113
+#, javascript-format
+msgid "Failed to load resource file %s. The reason is:"
+msgstr ""
+
+#: lib/impl/adapter/FileAdapter.js:131
+#, javascript-format
+msgid "Content is loading from %s"
+msgstr ""
+
+#: lib/ResourceProvider.js:31 lib/ResourceProvider.js:38
+#, javascript-format
+msgid "Resource type %s is unsupported"
 msgstr ""
 
 #: view/default/templates/register.ejs:22

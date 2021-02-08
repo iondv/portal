@@ -2,7 +2,7 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: dispatcher/controllers/index.js:17
@@ -72,48 +72,52 @@ msgstr ""
 msgid "Resource type %s is unsupported"
 msgstr ""
 
-#: view/default/templates/register.ejs:22
+#: ./view/default/templates/register.ejs:22
 msgid "Signing up"
 msgstr ""
 
-#: view/default/templates/register.ejs:25 view/default/templates/login.ejs:16
+#: ./view/default/templates/register.ejs:25
+#: ./view/default/templates/login.ejs:16
 msgid "Login"
 msgstr ""
 
-#: view/default/templates/register.ejs:33
-#: view/default/templates/register.ejs:38
-#: view/default/templates/register.ejs:48 view/default/templates/login.ejs:24
+#: ./view/default/templates/register.ejs:33
+#: ./view/default/templates/register.ejs:38
+#: ./view/default/templates/register.ejs:48
+#: ./view/default/templates/login.ejs:24
 msgid "Password"
 msgstr ""
 
-#: view/default/templates/register.ejs:43
+#: ./view/default/templates/register.ejs:43
 msgid "Repeat password"
 msgstr ""
 
-#: view/default/templates/register.ejs:76 view/default/templates/login.ejs:36
+#: ./view/default/templates/register.ejs:76
+#: ./view/default/templates/login.ejs:36
 msgid "Sign up"
 msgstr ""
 
-#: view/default/templates/register.ejs:78 view/default/templates/login.ejs:33
+#: ./view/default/templates/register.ejs:78
+#: ./view/default/templates/login.ejs:33
 msgid "Sign in"
 msgstr ""
 
-#: view/default/templates/500.ejs:4
+#: ./view/default/templates/500.ejs:4
 msgid "Internal server error"
 msgstr ""
 
-#: view/default/templates/parts/menu.ejs:22
+#: ./view/default/templates/parts/menu.ejs:22
 msgid "Personal area"
 msgstr ""
 
-#: view/default/templates/parts/menu.ejs:51
+#: ./view/default/templates/parts/menu.ejs:51
 msgid "Exit"
 msgstr ""
 
-#: view/default/templates/login.ejs:12
+#: ./view/default/templates/login.ejs:12
 msgid "Sign in to portal"
 msgstr ""
 
-#: view/default/templates/404.ejs:4
+#: ./view/default/templates/404.ejs:4
 msgid "Page not found"
 msgstr ""

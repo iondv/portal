@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-12 20:16+0000\n"
-"PO-Revision-Date: 2021-02-08 23:35+0000\n"
-"Last-Translator: allys <allys@live.ru>\n"
-"Language-Team: Russian <http://weblate.iondv.com/projects/iondv-framework/"
+"POT-Creation-Date: 2021-02-18 02:22+0000\n"
+"PO-Revision-Date: 2021-02-17 08:10+0000\n"
+"Last-Translator: Alena Kremenetskaya <alena.kremenetskaya@mail.ru>\n"
+"Language-Team: Russian <http://weblate.iondv.ru/projects/iondv-framework/"
 "portal/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -22,84 +22,84 @@ msgstr ""
 
 #: dispatcher/controllers/index.js:17
 msgid "Meta model repository not set up."
-msgstr ""
+msgstr "Репозиторий метамодели не настроен."
 
 #: lib/import.js:50
 #, javascript-format
 msgid "Failed to read contents of file %s"
-msgstr ""
+msgstr "Не удалось прочитать содержимое файла %s"
 
 #: lib/import.js:54
 #, javascript-format
 msgid "Portal navigation node %s is written to database."
-msgstr ""
+msgstr "Узел навигации портала %s записывается в базу данных."
 
 #: lib/import.js:82
 #, javascript-format
 msgid "Failed to read directory of portal navigation meta model: %s"
-msgstr ""
+msgstr "Не удалось прочитать каталог метамодели навигации портала: %s"
 
 #: lib/import.js:101
 #, javascript-format
 msgid "Importing portal navigation meta model from %s"
-msgstr ""
+msgstr "Импорт метамодели навигации портала из %s"
 
 #: lib/impl/DsPortalMetaRepository.js:20
 msgid "Meta model repository data source not set up."
-msgstr ""
+msgstr "Источник данных репозитория метамодели не настроен."
 
 #: lib/impl/adapter/ClassAdapter.js:22
 msgid "IonClassAdapter: data repository not specified."
-msgstr ""
+msgstr "IonClassAdapter: хранилище данных не указано."
 
 #: lib/impl/adapter/ClassAdapter.js:26
 msgid "IonClassAdapter: published class name not specified."
-msgstr ""
+msgstr "IonClassAdapter: имя опубликованного класса не указано."
 
 #: lib/impl/adapter/FileAdapter.js:23
 msgid "FileAdapter: contents directory is not set up."
-msgstr ""
+msgstr "FileAdapter: каталог содержимого не настроен."
 
 #: lib/impl/adapter/FileAdapter.js:113
 #, javascript-format
 msgid "Failed to load resource file %s. The reason is:"
-msgstr ""
+msgstr "Не удалось загрузить файл ресурсов %s. По причине:"
 
 #: lib/impl/adapter/FileAdapter.js:131
 #, javascript-format
 msgid "Content is loading from %s"
-msgstr ""
+msgstr "Загрузка содержимого из %s"
 
 #: lib/ResourceProvider.js:31 lib/ResourceProvider.js:38
 #, javascript-format
 msgid "Resource type %s is unsupported"
-msgstr ""
+msgstr "Тип ресурса %s не поддерживается"
 
 #: view/default/templates/register.ejs:22
 msgid "Signing up"
-msgstr ""
+msgstr "Регистрация"
 
 #: view/default/templates/register.ejs:25 view/default/templates/login.ejs:16
 msgid "Login"
-msgstr ""
+msgstr "Логин"
 
 #: view/default/templates/register.ejs:33
 #: view/default/templates/register.ejs:38
 #: view/default/templates/register.ejs:48 view/default/templates/login.ejs:24
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: view/default/templates/register.ejs:43
 msgid "Repeat password"
-msgstr ""
+msgstr "Повторите пароль"
 
 #: view/default/templates/register.ejs:76 view/default/templates/login.ejs:36
 msgid "Sign up"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 #: view/default/templates/register.ejs:78 view/default/templates/login.ejs:33
 msgid "Sign in"
-msgstr ""
+msgstr "Войти"
 
 #: view/default/templates/500.ejs:4
 msgid "Internal server error"
@@ -107,16 +107,16 @@ msgstr "Внутренняя ошибка сервера"
 
 #: view/default/templates/parts/menu.ejs:22
 msgid "Personal area"
-msgstr ""
+msgstr "Личный кабинет"
 
 #: view/default/templates/parts/menu.ejs:51
 msgid "Exit"
-msgstr ""
+msgstr "Выход"
 
 #: view/default/templates/login.ejs:12
 msgid "Sign in to portal"
-msgstr ""
+msgstr "Войти на портал"
 
 #: view/default/templates/404.ejs:4
 msgid "Page not found"
-msgstr ""
+msgstr "Страница не найдена"

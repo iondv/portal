@@ -10,6 +10,9 @@
   "bugs": {
     "url": "https://github.com/iondv/portal/issues"
   },
+  "scripts": {
+    "install": "cd view/default/static && npm install"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/iondv/portal.git"

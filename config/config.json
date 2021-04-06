@@ -4,7 +4,7 @@
   "lkModule": "lk",
   "di" : {
     "portalMeta": {
-      "module": "./lib/impl/DsPortalMetaRepository",
+      "module": "@iondv/portal/lib/impl/DsPortalMetaRepository",
       "initMethod": "init",
       "initLevel": 1,
       "options": {
@@ -12,7 +12,7 @@
       }
     },
     "provider": {
-      "module": "./lib/ResourceProvider",
+      "module": "@iondv/portal/lib/ResourceProvider",
       "options": {}
     }
   }

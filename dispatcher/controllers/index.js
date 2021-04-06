@@ -3,21 +3,20 @@
  */
 'use strict';
 
-const di = require('core/di');
-const moduleName = require('../../module-name');
+const { di } = require('@iondv/core');
 const {onError} = require('../../backend/error');
-const {t} = require('core/i18n');
+const {t} = require('@iondv/i18n');
 
 module.exports = function (req, res) {
   /**
    * @type {{portalMeta: PortalMetaRepository}}
    */
-  var scope = di.context(moduleName);
+  var scope = di.context(req.moduleName);
   if (!scope.portalMeta) {
     return onError(scope, new Error(t('Meta model repository not set up.')), res);
   }
 
-  var defaultPath = scope.settings.get(moduleName + '.default');
+  var defaultPath = scope.settings.get(req.moduleName + '.default');
   if (!defaultPath) {
     let sects = scope.portalMeta.getNavigationSections();
     for (let i = 0; i < sects.length; i++) {
@@ -32,5 +31,5 @@ module.exports = function (req, res) {
     return  onError(scope, null, res, 404);
   }
 
-  res.redirect('/' + moduleName + '/' + defaultPath);
+  res.redirect('/' + req.moduleName + '/' + defaultPath);
 };

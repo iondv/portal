@@ -2,8 +2,7 @@
  * Created by Vasiliy Ermilov (ermilov.work@yandex.ru) on 2/13/17.
  */
 
-const di = require('core/di');
-const moduleName = require('../../module-name');
+const { di } = require('@iondv/core');
 const {
   navTemplate, resTemplate
 } = require('../../backend/template');
@@ -14,7 +13,7 @@ module.exports = function(req, res) {
   /**
    * @type {{portalMeta: PortalMetaRepository, provider: ResourceProvider}}
    */
-  const scope = di.context(moduleName);
+  const scope = di.context(req.moduleName);
   const n = scope.portalMeta.getNode(req.params.node);
 
   if (!n) {
@@ -34,8 +33,8 @@ module.exports = function(req, res) {
           res.render(customTemplate || 'resource', {
             resource: r,
             portal: scope.settings.get('portal.portalName'),
-            module: moduleName,
-            menu: buildMenu(moduleName, scope.portalMeta),
+            module: req.moduleName,
+            menu: buildMenu(req.moduleName, scope.portalMeta),
             query: req.query || {}
           });
         })
@@ -51,8 +50,8 @@ module.exports = function(req, res) {
         page: req.query.p || 1,
         pageCount: Math.ceil(resources.total / count),
         portal: scope.settings.get('portal.portalName'),
-        module: moduleName,
-        menu: buildMenu(moduleName, scope.portalMeta),
+        module: req.moduleName,
+        menu: buildMenu(req.moduleName, scope.portalMeta),
         query: req.query || {}
       }, (err, html) => {
         if (err) {
@@ -72,8 +71,8 @@ module.exports = function(req, res) {
     page: 1,
     pageCount: 0,
     portal: scope.settings.get('portal.portalName'),
-    module: moduleName,
-    menu: buildMenu(moduleName, scope.portalMeta),
+    module: req.moduleName,
+    menu: buildMenu(req.moduleName, scope.portalMeta),
     query: req.query || {}
   });
 };

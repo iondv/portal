@@ -3,8 +3,7 @@
  */
 'use strict';
 
-const di = require('core/di');
-const moduleName = require('../../module-name');
+const { di } = require('@iondv/core');
 const {resTemplate} = require('../../backend/template');
 const {onError} = require('../../backend/error');
 const buildMenu = require('../../backend/menu');
@@ -13,7 +12,7 @@ module.exports = function (req, res) {
   /**
    * @type {{portalMeta: PortalMetaRepository, provider: ResourceProvider}}
    */
-  var scope = di.context(moduleName);
+  var scope = di.context(req.moduleName);
   var n = scope.portalMeta.getNode(req.params.node);
 
   if (!n || !n.resources) {
@@ -29,8 +28,8 @@ module.exports = function (req, res) {
       res.render(customTemplate || 'resource', {
         resource: resource,
         portal: scope.settings.get('portal.portalName'),
-        module: moduleName,
-        menu: buildMenu(moduleName, scope.portalMeta)
+        module: req.moduleName,
+        menu: buildMenu(req.moduleName, scope.portalMeta)
       }, function (err, html) {
         if (err) {
           onError(scope, err, res);

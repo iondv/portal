@@ -6,21 +6,23 @@
 'use strict';
 
 const express = require('express');
-const di = require('core/di');
+const { di } = require('@iondv/core');
 const config = require('./config');
 const moduleName = require('./module-name');
 const dispatcher = require('./dispatcher');
-const extendDi = require('core/extendModuleDi');
+const { utils: { extendDi } } = require('@iondv/commons');
 const ejsLocals = require('ejs-locals');
-const theme = require('lib/util/theme');
-const staticRouter = require('lib/util/staticRouter');
-const extViews = require('lib/util/extViews');
-const alias = require('core/scope-alias');
+const {
+  util: {
+    staticRouter, extViews, theme
+  }
+} = require('@iondv/web');
+const alias = di.alias;
 const merge = require('merge');
 const path = require('path');
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelop = process.env.NODE_ENV === 'development';
-const {load} = require('core/i18n');
+const {load} = require('@iondv/i18n');
 
 var app = module.exports = express();
 var router = express.Router();
@@ -37,7 +39,7 @@ app.locals.lkModule = config.lkModule;
 app.engine('ejs', ejsLocals);
 app.set('view engine', 'ejs');
 
-app._init = function () {
+app._init = function (moduleName) {
   let rootScope = di.context('app');
   let needAuth = rootScope.settings.get(moduleName + '.needAuth');
   if (!needAuth) {
@@ -45,15 +47,13 @@ app._init = function () {
     rootScope.auth.exclude('/' + moduleName);
   }
 
-  return load(path.join(__dirname, 'i18n'))
+  return load(path.join(process.cwd(), 'i18n'))
     .then(
       () => di(
         moduleName,
         extendDi(moduleName, config.di),
         {module: app},
-        'app',
-        [],
-        'modules/' + moduleName
+        'app'
       )
     )
     .then(scope => alias(scope, scope.settings.get(moduleName + '.di-alias')))
@@ -61,7 +61,7 @@ app._init = function () {
       let staticOptions = isDevelop ? {} : scope.settings.get('staticOptions');
       theme(
         app,
-        moduleName,
+        null,
         __dirname,
         scope.settings.get(moduleName + '.theme') || config.theme || 'default',
         scope.sysLog,
@@ -74,14 +74,14 @@ app._init = function () {
       app.locals.pageEndContent = scope.settings.get(moduleName + '.pageEndContent') || scope.settings.get('pageEndContent') || '';
       let statics = staticRouter(scope.settings.get(`${moduleName}.statics`), staticOptions);
       if (statics) {
-        app.use('/' + moduleName, statics);
+        app.use('/', statics);
       }
-      scope.auth.bindAuth(app, moduleName, {});
-      app.use('/' + moduleName, function (req, res, next) {
+      scope.auth.bindAuth(app, '', {});
+      app.use('/', function (req, res, next) {
         res.locals.user = scope.auth.getUser(req);
         next();
       });
       merge(app.locals, scope.settings.get('portal.env') || {});
-      app.use('/' + moduleName, router);
+      app.use('/', router);
     });
 };

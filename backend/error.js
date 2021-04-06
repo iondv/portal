@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const Logger = require('core/interfaces/Logger');
+const { Logger } = require('@iondv/commons-contracts');
 const moduleName = require('../module-name');
 const buildMenu = require('./menu');
 const {errTemplate} = require('./template');

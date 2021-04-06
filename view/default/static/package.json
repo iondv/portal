@@ -1,7 +1,6 @@
 {
   "name": "iondv-portal-view-default-theme",
   "version": "1.0.0",
-
   "description": "Frontend packages for module iondv. portal theme",
   "repository": {
     "type": "git",

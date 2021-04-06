@@ -18,6 +18,12 @@
     "url": "https://github.com/iondv/portal.git"
   },
   "dependencies": {
-    "showdown": "latest"
+    "showdown": "latest",
+    "@iondv/commons": "iondv/commons#main",
+    "@iondv/commons-contracts": "iondv/commons-contracts#main",
+    "@iondv/core": "iondv/core#main",
+    "@iondv/i18n": "iondv/i18n#main",
+    "@iondv/meta-model-contracts": "iondv/meta-model-contracts#main",
+    "@iondv/web": "iondv/web#main"
   }
 }
